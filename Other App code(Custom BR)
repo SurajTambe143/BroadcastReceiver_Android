@@ -1,0 +1,9 @@
+findViewById<MaterialButton>(R.id.btn_send_broadcast).setOnClickListener {
+            var inputText=findViewById<EditText>(R.id.it_send_broadcast)
+            val txt=inputText.editableText.toString()
+
+            // This step is used to fire broadcast from different application (path of different app is given in Intent)
+            var intent=Intent("com.example.broadcastdemo.TEXT_SEND_ACTION")
+            intent.putExtra("com.example.EXTRA_DATA",txt)
+            sendBroadcast(intent)
+        }
